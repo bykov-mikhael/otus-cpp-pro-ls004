@@ -13,22 +13,28 @@ inline constexpr bool is_integer_v = std::numeric_limits<T>::is_integer;
 
 template <typename T>
 struct is_string : std::false_type {};
+
 template <>
 struct is_string<std::string> : std::true_type {};
+
 template <typename T>
 inline constexpr bool is_string_v = is_string<T>::value;
 
 template <typename T>
 struct is_vector : std::false_type {};
+
 template <typename... Args>
 struct is_vector<std::vector<Args...>> : std::true_type {};
+
 template <typename T>
 inline constexpr bool is_vector_v = is_vector<T>::value;
 
 template <typename T>
 struct is_list : std::false_type {};
+
 template <typename... Args>
 struct is_list<std::list<Args...>> : std::true_type {};
+
 template <typename T>
 inline constexpr bool is_list_v = is_list<T>::value;
 
